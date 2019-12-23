@@ -22,7 +22,7 @@ class EditEmployeeComponent extends Component {
     loadEmployee() {
         ApiService.fetchEmployeeById(window.localStorage.getItem("id"))
             .then((res) => {
-                let employee = res.data.result;
+                let employee = res.data;
                 this.setState({
                 id: employee.id,
                 firstName: employee.firstName,
@@ -40,8 +40,8 @@ class EditEmployeeComponent extends Component {
         let employee = {id: this.state.id, firstName: this.state.firstName, lastName: this.state.lastName, email: this.state.email};
         ApiService.editEmployee(employee)
             .then(res => {
-                this.setState({message : 'Employee added successfully.'});
-                this.props.history.push('/employees');
+                this.setState({message : 'Employee updated successfully.'});
+                this.props.history.push('/');
             });
     }
 
@@ -53,7 +53,7 @@ class EditEmployeeComponent extends Component {
 
                     <div className="form-group">
                         <label>ID:</label>
-                        <input type="text" placeholder="id" name="id" className="form-control" readonly="true" defaultValue={this.state.id}/>
+                        <input type="text" placeholder="id" name="id" className="form-control" readOnly={true} defaultValue={this.state.id}/>
                     </div>
 
                     <div className="form-group">
