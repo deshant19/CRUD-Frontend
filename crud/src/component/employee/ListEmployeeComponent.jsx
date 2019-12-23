@@ -22,7 +22,7 @@ class ListEmployeeComponent extends Component {
     reloadEmployeeList() {
         ApiService.fetchEmployees()
             .then((res) => {
-                this.setState({employees: res.data.result})
+                this.setState({employees: res.data})
             });
     }
 
