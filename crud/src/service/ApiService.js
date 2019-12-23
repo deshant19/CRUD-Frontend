@@ -17,11 +17,11 @@ class ApiService {
     }
 
     addEmployee(employee) {
-        return axios.post(""+EMPLOYEE_API_BASE_URL, employee);
+        return axios.post(EMPLOYEE_API_BASE_URL, employee);
     }
 
     editEmployee(employee) {
-        return axios.put(EMPLOYEE_API_BASE_URL + '/' + employee.id, employee);
+        return axios.put(EMPLOYEE_API_BASE_URL, employee);
     }
 
 }
