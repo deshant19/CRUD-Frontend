@@ -20,7 +20,7 @@ class AddEmployeeComponent extends Component{
         ApiService.addEmployee(employee)
             .then(res => {
                 this.setState({message : 'Employee added successfully.'});
-                this.props.history.push('/employees');
+                this.props.history.push('/');
             });
     }
 
